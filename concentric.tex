@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[fill=blue!30] (0,0) circle (2.8);
+  \draw[fill=green!30] (0,0) circle (1.4);
+  \draw[<->, rounded corners, thick] (0,0) -- (0,-1.4);
+  \node at (0,0) {$\bullet$};
+  \node at (0.3,-0.7) {$h$};
+  \filldraw[blue!60, draw=black] (-2.8,-1.4) rectangle (2.8,-3.40);
+  \draw [thick, dashed, domain=-150:-30] plot ({2.8*cos(\x)}, {2.8*sin(\x)});
+  \path[->, thick] (-0.2,2.9) edge [bend left=10] (0.2,2.9);
+\end{tikzpicture}
+\end{document}
+
