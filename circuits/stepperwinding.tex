@@ -1,0 +1,22 @@
+\begin{circuitikz}[scale=1]
+  \draw (0,0) to (8,0) node[ocirc] {} ;
+  \draw (0,1) to [L](4,1) ;
+  \draw [L](4,1) to (8,1)node[ocirc] {} ;
+  \draw (0,0) to (0,1) ;
+  \draw (4,1) to (4,2) to (8,2) node[ocirc]{} ;
+  \draw (0,5) to (8,5) node[ocirc] {} ;
+  \draw (0,4) to [L](4,4) ;
+  \draw [L](4,4) to (8,4)node[ocirc] {} ;
+  \draw (0,5) to (0,4) ;
+  \draw (4,4) to (4,3) to (8,3) node[ocirc]{} ;
+  \draw (2,0.75)node[anchor=north] {WDG D} ;
+  \draw (6,0.75)node[anchor=north] {WDG C} ;
+  \draw (6,3.75)node[anchor=north] {WDG B} ;
+  \draw (2,3.75)node[anchor=north] {WDG A} ;
+  \draw (8,0)node[anchor=west] {D} ;
+  \draw (8,1)node[anchor=west] {C} ;
+  \draw (8,2)node[anchor=west] {BLK} ;
+  \draw (8,3)node[anchor=west] {WHT} ;
+  \draw (8,4)node[anchor=west] {B} ;
+  \draw (8,5)node[anchor=west] {A} ;
+\end{circuitikz}

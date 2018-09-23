@@ -1,0 +1,250 @@
+\begin{circuitikz}[scale=1]
+  \coordinate(A) at (\x+2.25,3);
+  \draw (\x,0) rectangle (\x+4.5,5) ;
+  \begin{scope}[xslant=0.1]
+    \SSGNb{A}{}
+  \end{scope}
+  \foreach \h in {1,...,8}
+  {
+    \FPeval{\k}{clip(\h/2)}
+    \draw (\x+\k,0) to [R](\x+\k,-2) ;
+  }
+  \draw (\x,-1) node[left] {330$\Omega$} ;
+  \foreach \k/\lbl in {0.5/a,1/b,1.5/c,2/d,2.5/e,3/f,3.5/g,4/h}    
+  {
+    \draw (\x+\k,0) node[above] {\lbl} ;
+  }
+  \draw (\x+2,5) node[below] {Anode} ;
+  \draw (\x+4.5,3) node[left] {D3} ;
+  \draw (\x,3) node[left] {MAN 72} ;
+  \draw (\x+2.25,5) node[above left] {14} ;
+  \draw (\x+2.25,5) to (\x+2.25,6) ;
+  \draw (\x,-2) rectangle (\x+4.5,-5) ;
+  \foreach \k/\lbl in {0.5/A,1/B,1.5/C,2/D,2.5/E,3/F,3.5/G,4/H}    
+  {
+    \draw (\x+\k,-2) node[below] {\lbl} ;
+  }
+  \foreach \k/\lbl in {0.5/1,1/13,1.5/10,2/8,2.5/7,3/2,3.5/11,4/6}    
+  {
+    \draw (\x+\k+0.1,0.1) node[below left] {\scriptsize \lbl} ;
+  }
+  \foreach \k/\lbl in {0.5/3,1/4,1.5/5,2/6,2.5/10,3/11,3.5/12,4/13}    
+  {
+    \draw (\x+\k,-2.1) node[above left] {\scriptsize \lbl} ;
+  }
+  \draw (\x,-3) node[right] {DA} ;
+  \draw (\x,-3) node[above left] {1} ;
+  \draw (\x-1,-3) to (\x,-3) ;
+  \draw (\x+4,-1.8) node[circ] {} to (\x+5,-1.8) to (\x+5,-3) to (\x+6,-3);
+  \draw (\x,-4) node[right] {DB} ;
+  \draw (\x+1,-5) node[above] {CP} ;
+  \draw (\x+2.2,-5) node[above] {CL} ;
+  \draw (\x+3.4,-5) node[above] {VCC} ;
+  \draw (\x+1,-5) to (\x+1,-10) ;
+  \draw (\x+2.2,-5) to (\x+2.2,-6) node[circ] {};
+  \draw (\x+3.4,-5) to (\x+3.4,-6) node[circ] {} ;
+  \draw (\x+3.4,-6) to [C](\x+3.4,-9) ;
+  \draw (\x+3.4,-7) node[left] {20nF} ;
+  \draw (\x+3.4,-9) node[ground] {} ;
+  \draw (\x,-4) to (\x-1,-4) to (\x-1,-6) to (\x+6,-6) node[circ] {} ;
+  \draw (\x+4.5,-3.5) -| (\x+5.5,-4.5) node[ground] {} ;
+  \draw (\x+4.5,-3.5) node[above right] {7} ;
+
+  \renewcommand{\x}{7}
+
+  \coordinate(A) at (\x+2.25,3);
+  \draw (\x,0) rectangle (\x+4.5,5) ;
+  \begin{scope}[xslant=0.1]
+    \SSGNb{A}{}
+  \end{scope}
+  \foreach \h in {1,...,8}
+  {
+    \FPeval{\k}{clip(\h/2)}
+    \draw (\x+\k,0) to [R](\x+\k,-2) ;
+  }
+  \draw (\x,-1) node[left] {330$\Omega$} ;
+  \foreach \k/\lbl in {0.5/a,1/b,1.5/c,2/d,2.5/e,3/f,3.5/g,4/h}    
+  {
+    \draw (\x+\k,0) node[above] {\lbl} ;
+  }
+  \draw (\x+2,5) node[below] {Anode} ;
+  \draw (\x+4.5,3) node[left] {D3} ;
+  \draw (\x,3) node[left] {MAN 72} ;
+  \draw (\x+2.25,5) node[above left] {14} ;
+  \draw (\x+2.25,5) to (\x+2.25,6) ;
+  \draw (\x,-2) rectangle (\x+4.5,-5) ;
+  \foreach \k/\lbl in {0.5/A,1/B,1.5/C,2/D,2.5/E,3/F,3.5/G,4/H}    
+  {
+    \draw (\x+\k,-2) node[below] {\lbl} ;
+  }
+  \foreach \k/\lbl in {0.5/1,1/13,1.5/10,2/8,2.5/7,3/2,3.5/11,4/6}    
+  {
+    \draw (\x+\k+0.1,0.1) node[below left] {\scriptsize \lbl} ;
+  }
+  \foreach \k/\lbl in {0.5/3,1/4,1.5/5,2/6,2.5/10,3/11,3.5/12,4/13}    
+  {
+    \draw (\x+\k,-2.1) node[above left] {\scriptsize \lbl} ;
+  }
+  \draw (\x,-3) node[right] {DA} ;
+  \draw (\x,-3) node[above left] {1} ;
+  \draw (\x-1,-3) to (\x,-3) ;
+  \draw (\x+4,-1.8) node[circ] {} to (\x+5,-1.8) to (\x+5,-3) to (\x+6,-3);
+  \draw (\x,-4) node[right] {DB} ;
+  \draw (\x+1,-5) node[above] {CP} ;
+  \draw (\x+2.2,-5) node[above] {CL} ;
+  \draw (\x+3.4,-5) node[above] {VCC} ;
+  \draw (\x+1,-5) to (\x+1,-10) ;
+  \draw (\x+2.2,-5) to (\x+2.2,-6) node[circ] {};
+  \draw (\x+3.4,-5) to (\x+3.4,-6) node[circ] {} ;
+  \draw (\x+3.4,-6) to [C](\x+3.4,-9) ;
+  \draw (\x+3.4,-7) node[left] {20nF} ;
+  \draw (\x+3.4,-9) node[ground] {} ;
+  \draw (\x,-4) to (\x-1,-4) to (\x-1,-6) to (\x+6,-6) node[circ] {} ;
+  \draw (\x+4.5,-3.5) -| (\x+5.5,-4.5) node[ground] {} ;
+  \draw (\x+4.5,-3.5) node[above right] {7} ;
+
+  \renewcommand{\x}{14}
+
+  \coordinate(A) at (\x+2.25,3);
+  \draw (\x,0) rectangle (\x+4.5,5) ;
+  \begin{scope}[xslant=0.1]
+    \SSGNb{A}{}
+  \end{scope}
+  \foreach \h in {1,...,8}
+  {
+    \FPeval{\k}{clip(\h/2)}
+    \draw (\x+\k,0) to [R](\x+\k,-2) ;
+  }
+  \draw (\x,-1) node[left] {330$\Omega$} ;
+  \foreach \k/\lbl in {0.5/a,1/b,1.5/c,2/d,2.5/e,3/f,3.5/g,4/h}    
+  {
+    \draw (\x+\k,0) node[above] {\lbl} ;
+  }
+  \draw (\x+2,5) node[below] {Anode} ;
+  \draw (\x+4.5,3) node[left] {D3} ;
+  \draw (\x,3) node[left] {MAN 72} ;
+  \draw (\x+2.25,5) node[above left] {14} ;
+  \draw (\x+2.25,5) to (\x+2.25,6) ;
+  \draw (\x,-2) rectangle (\x+4.5,-5) ;
+  \foreach \k/\lbl in {0.5/A,1/B,1.5/C,2/D,2.5/E,3/F,3.5/G,4/H}    
+  {
+    \draw (\x+\k,-2) node[below] {\lbl} ;
+  }
+  \foreach \k/\lbl in {0.5/1,1/13,1.5/10,2/8,2.5/7,3/2,3.5/11,4/6}    
+  {
+    \draw (\x+\k+0.1,0.1) node[below left] {\scriptsize \lbl} ;
+  }
+  \foreach \k/\lbl in {0.5/3,1/4,1.5/5,2/6,2.5/10,3/11,3.5/12,4/13}    
+  {
+    \draw (\x+\k,-2.1) node[above left] {\scriptsize \lbl} ;
+  }
+  \draw (\x,-3) node[right] {DA} ;
+  \draw (\x,-3) node[above left] {1} ;
+  \draw (\x-1,-3) to (\x,-3) ;
+  \draw (\x+4,-1.8) node[circ] {} to (\x+5,-1.8) to (\x+5,-3) to (\x+6,-3);
+  \draw (\x,-4) node[right] {DB} ;
+  \draw (\x+1,-5) node[above] {CP} ;
+  \draw (\x+2.2,-5) node[above] {CL} ;
+  \draw (\x+3.4,-5) node[above] {VCC} ;
+  \draw (\x+1,-5) to (\x+1,-10) ;
+  \draw (\x+2.2,-5) to (\x+2.2,-6) node[circ] {};
+  \draw (\x+3.4,-5) to (\x+3.4,-6) node[circ] {} ;
+  \draw (\x+3.4,-6) to [C](\x+3.4,-9) ;
+  \draw (\x+3.4,-7) node[left] {20nF} ;
+  \draw (\x+3.4,-9) node[ground] {} ;
+  \draw (\x,-4) to (\x-1,-4) to (\x-1,-6) to (\x+6,-6) node[circ] {} ;
+  \draw (\x+4.5,-3.5) -| (\x+5.5,-4.5) node[ground] {} ;
+  \draw (\x+4.5,-3.5) node[above right] {7} ;
+
+  \renewcommand{\x}{21}
+
+  \coordinate(A) at (\x+2.25,3);
+  \draw (\x,0) rectangle (\x+4.5,5) ;
+  \begin{scope}[xslant=0.1]
+    \SSGNb{A}{}
+  \end{scope}
+  \foreach \h in {1,...,8}
+  {
+    \FPeval{\k}{clip(\h/2)}
+    \draw (\x+\k,0) to [R](\x+\k,-2) ;
+  }
+  \draw (\x,-1) node[left] {330$\Omega$} ;
+  \foreach \k/\lbl in {0.5/a,1/b,1.5/c,2/d,2.5/e,3/f,3.5/g,4/h}    
+  {
+    \draw (\x+\k,0) node[above] {\lbl} ;
+  }
+  \draw (\x+2,5) node[below] {Anode} ;
+  \draw (\x+4.5,3) node[left] {D3} ;
+  \draw (\x,3) node[left] {MAN 72} ;
+  \draw (\x+2.25,5) node[above left] {14} ;
+  \draw (\x+2.25,5) to (\x+2.25,6) ;
+  \draw (\x,-2) rectangle (\x+4.5,-5) ;
+  \foreach \k/\lbl in {0.5/A,1/B,1.5/C,2/D,2.5/E,3/F,3.5/G,4/H}    
+  {
+    \draw (\x+\k,-2) node[below] {\lbl} ;
+  }
+  \foreach \k/\lbl in {0.5/1,1/13,1.5/10,2/8,2.5/7,3/2,3.5/11,4/6}    
+  {
+    \draw (\x+\k+0.1,0.1) node[below left] {\scriptsize \lbl} ;
+  }
+  \foreach \k/\lbl in {0.5/3,1/4,1.5/5,2/6,2.5/10,3/11,3.5/12,4/13}    
+  {
+    \draw (\x+\k,-2.1) node[above left] {\scriptsize \lbl} ;
+  }
+  \draw (\x,-3) node[right] {DA} ;
+  \draw (\x,-3) node[above left] {1} ;
+  \draw (\x-1,-3) to (\x,-3) ;
+  \draw (\x+4,-1.8) node[circ] {} to (\x+5,-1.8) to (\x+5,-3) to (\x+6,-3);
+  \draw (\x,-4) node[right] {DB} ;
+  \draw (\x+1,-5) node[above] {CP} ;
+  \draw (\x+2.2,-5) node[above] {CL} ;
+  \draw (\x+3.4,-5) node[above] {VCC} ;
+  \draw (\x+1,-5) to (\x+1,-10) ;
+  \draw (\x+2.2,-5) to (\x+2.2,-6) node[circ] {};
+  \draw (\x+3.4,-5) to (\x+3.4,-6) node[circ] {} ;
+  \draw (\x+3.4,-6) to [C](\x+3.4,-9) ;
+  \draw (\x+3.4,-7) node[left] {20nF} ;
+  \draw (\x+3.4,-9) node[ground] {} ;
+  \draw (\x,-4) to (\x-1,-4) to (\x-1,-6) to (\x+6,-6) node[circ] {} ;
+  \draw (\x+4.5,-3.5) -| (\x+5.5,-4.5) node[ground] {} ;
+  \draw (\x+4.5,-3.5) node[above right] {7} ;
+
+
+
+  \draw (\x+6,-6) to (\x+6,-8)node[ocirc] {} ;
+  \draw (\x+6,-8)node[below] {+5V} ;
+  \draw (\x+6,-6) to (\x+6,6) to (\x-18.75,6) ;
+  \draw (\x+1,-10) to (\x-20,-10) ;
+  \draw (1,-10) to (1,-11) ;
+  \draw (2,-11)node[not port,rotate=180] (n1) {} ;
+  \draw (1.7,-11)node[above left] {10} ;
+  \draw (2.5,-11)node[above right] {11} ;
+  \draw (2.2,-11)node[] {U5} ;
+  \draw (5,-11)node[not port,rotate=180] (n2) {} ;
+  \draw (4.7,-11)node[above left] {12} ;
+  \draw (5.5,-11)node[above right] {13} ;
+  \draw (5.2,-11)node[] {U5} ;
+  \draw (3,-11) to (n1.in) ;
+  \draw (n2.out) to (n1.in) ;
+  \draw (n1.out) to (1,-11);
+  \draw (-1,-3) to (-2,-3) to (-2,-14) ;
+  \draw (2,-14)node[not port,rotate=180] (n3) {} ;
+  \draw (1.7,-14)node[above left] {6} ;
+  \draw (2.5,-14)node[above right] {5} ;
+  \draw (2.2,-14)node[] {U5} ;
+  \draw (5,-14)node[not port,rotate=180] (n4) {} ;
+  \draw (4.7,-14)node[above left] {4} ;
+  \draw (5.5,-14)node[above right] {3} ;
+  \draw (5.2,-14)node[] {U5} ;
+  \draw (4.2,-15)node[] {74LS04} ;
+  \draw (n4.out) to (n3.in) ;
+  \draw (n3.out) to (-2,-14);
+  \draw (10.5,-15) |- (n4.in) ;
+  \draw (13.5,-15) |- (n2.in) ;
+  \foreach \h/\lb/\lbl in {10/13/PB0,11/25/VCC,12/26/GND,13/5/PC0}
+  {
+    \draw (\h,-15) rectangle (\h+1,-16) ;
+    \draw (\h+0.5,-16) node[above] {\lb} ;
+    \draw (\h+0.5,-16) node[below] {\scriptsize \lbl} ;
+  }
+\end{circuitikz}

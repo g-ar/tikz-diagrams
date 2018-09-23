@@ -1,0 +1,35 @@
+\begin{circuitikz}[scale=1]
+  \draw (4,0) node[npn](npn1) {} ;
+  \draw (6,-1) node[npn](npn2) {} ;
+  \draw (0,0) to [R](2,0) ;
+  \draw (2,0)node[circ](c1){} to (npn1.base) ;
+  \draw (4,3) to (10,3)node[ocirc]{};
+  \draw (4,3) to [R](4,1);
+  \draw (4,1) to (npn1.collector) ;
+  \draw (npn1.emitter) to (4,-1) ;
+  \draw (4,-1) to (npn2.base) ;
+  \draw (c1) to [R](2,-2) ;
+  \draw (2,-2) to (6,-2) to (npn2.emitter) ;
+  \draw (6,3) to [L](npn2.collector) ;
+  \draw (6,0)node[circ]{} to (10,0)node[ocirc]{} ;
+  \draw (8,0)node[circ]{} to [D*](8,2.5) to (6,2.5) node[circ]{} ;
+  \draw (4,-2) to (4,-3) node [ground] {} ;
+
+  \draw (1.75,-1.25) node[anchor=east] {R$_{1}$} ;
+  \draw (2.25,-1.25) node[anchor=west] {2K} ;
+  \draw (1,0.25) node[anchor=south] {R$_{5}$} ;
+  \draw (1,-0.25) node[anchor=north] {470E} ;
+  \draw (3.75,2) node[anchor=east] {R$_{12}$} ;
+  \draw (4.25,2) node[anchor=west] {620E} ;
+  \draw (5.8,1.5) node[anchor=east] {C} ;
+  \draw (6.2,1.5) node[anchor=west] {WDG} ;
+  \draw (8.2,2) node[anchor=west] {D$_{3}$} ;
+  \draw (8.2,1.5) node[anchor=west] {4001} ;
+  \draw (4.2,0.5) node[anchor=west] {TR$_{3}$} ;
+  \draw (4.2,0) node[anchor=west] {SL100} ;
+  \draw (6.2,-1) node[anchor=west] {TR$_{6}$} ;
+  \draw (6.2,-1.5) node[anchor=west] {2N3055} ;
+  \draw (10,3) node[anchor=west] {$+$5/12V DC} ;
+  \draw (10,0) node[anchor=west] {C} ;
+  \draw (0,0) node[anchor=east] {PA$_{0}$} ;
+\end{circuitikz}

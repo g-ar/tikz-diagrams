@@ -1,0 +1,56 @@
+\begin{circuitikz}
+  \draw (-4,-1) rectangle (-6,10) ;
+  \foreach \y in {3,4,5,6}
+  {\draw
+    (-6,\y) to (-7,\y) ;
+  }
+  \foreach \y in {0,1,2,3,4,5,6,7,8,9}
+  {\draw
+    (0,\y)node[circ]{} to [D*](-2,\y) 
+    (-2,\y) to [R,-o](-4,\y) ;
+  }
+  \foreach \y/\flreq in {0/GF,3/FF,6/SF,9/TF}
+  {\draw
+    (0,\y) to [D*](2,\y) 
+    (2,\y) to [R](4,\y) 
+    (4,\y) to (6,\y);{}
+    \draw (6,\y) node[anchor=west]{\scriptsize $\overline{\mathrm{Q}}$} ;
+    \draw (4,\y) node[anchor=south]{\scriptsize \flreq} ;
+  }
+  \foreach \y/\lbl/\flreq in {-1/PA$_{4}$/GF Request ,2/PA$_{5}$/FF Request,5/PA$_{6}$/SF Request,8/PA$_{7}$/TF Request}
+  {
+    \draw (6,\y) rectangle (7.2,\y+2) ;
+    \draw (7.2,\y+1.5) node[ocirc]{} to (8.2,\y+1.5) node[ocirc]{} ;
+    \draw (7.2,\y+1.5) node[anchor=east]{\scriptsize PR} ;
+    \draw (8.7,\y+1.5) node[ocirc]{} -|  (9,\y+1.2) node[ground]{} ;
+    \draw (8.2,\y+1.65) to (8.7,\y+1.65) ;
+    \draw (8.45,\y+1.65) to (8.45,\y+1.85) ;
+    \draw (8.45,\y+1.75) node[anchor=south]{\scriptsize \flreq} ;
+    \draw (7.2,\y+0.5) node[ocirc]{} -| (9.2+\y/6,-3)  ;
+    \draw (7.2,\y+.5) node[anchor=east]{\scriptsize CLR} ;
+    \draw (9.2+\y/6,-3) node[anchor=north]{\scriptsize \lbl} ;
+  }
+  \draw (4,0)node[circ]{} to (4,-3) ;
+  \draw (4.5,3)node[circ]{} to (4.5,-3) ;
+  \draw (5,6)node[circ]{} to (5,-3) ;
+  \draw (5.5,9)node[circ]{} to (5.5,-3) ;
+  \draw (0,0) to (0,10) node[ocirc]{} ;
+  \draw (0,10.5) node[anchor=north]{+5V} ;
+  \draw (-7,3) node[anchor=east]{PA$_3$} ;
+  \draw (-7,4) node[anchor=east]{PA$_2$} ;
+  \draw (-7,5) node[anchor=east]{PA$_1$} ;
+  \draw (-7,6) node[anchor=east]{PA$_0$} ;
+
+  \draw (4,-3)   node[anchor=north]{\scriptsize PB$_3$} ;
+  \draw (4.5,-3) node[anchor=north]{\scriptsize PB$_2$} ;
+  \draw (5,-3)   node[anchor=north]{\scriptsize PB$_1$} ;
+  \draw (5.5,-3) node[anchor=north]{\scriptsize PB$_0$} ;
+  \draw (-5,5) node[anchor=north]{\large \bf 7442} ;
+  \draw (-5,4) node[anchor=north]{\small DECODER} ;
+  \draw (-7,2) node[anchor=north]{\bf Port-A} ;
+  \draw (-7,1.5) node[anchor=north]{\bf(Out)} ;
+  \draw (10,-4) node[anchor=north]{\bf Port-A} ;
+  \draw (10,-4.5) node[anchor=north]{\bf(Output)} ;
+  \draw (5,-4) node[anchor=north]{\bf Port-B} ;
+  \draw (5,-4.5) node[anchor=north]{\bf(Input)} ;
+\end{circuitikz}

@@ -1,0 +1,13 @@
+\begin{circuitikz}[scale=1]
+  \draw (0,0) rectangle (3,4) ;
+  \foreach \y in {1,2,3} 
+  {
+    \FPeval{\lbl}{clip(4-\y)} 
+    \draw (0,\y) to (-1,\y) ;
+    \draw (0,\y) node[anchor=west] {\lbl} ;
+  }
+  \draw (0,3) to (-2,3) to (-2,-1)node[ground] {} ;
+  \draw (0,2) to (-3,2) to (-3,5)node[ocirc] {} ;
+  \draw (1,4)node[anchor=south] {J2} ;
+  \draw (-3,5)node[anchor=south] {$+$5/12V DC} ;
+\end{circuitikz}

@@ -1,0 +1,90 @@
+\begin{circuitikz}[scale=1]
+  \draw
+  (1,0)node[not port] (mynot1) {} 
+  (1,2)node[not port] (mynot2) {} 
+  (1,4)node[not port] (mynot3) {} 
+  (1,6)node[not port] (mynot4) {} 
+  (1,8)node[not port] (mynot5) {} 
+  (1,10)node[not port] (mynot6) {} 
+  (1,12)node[not port] (mynot7) {} 
+  (1,14)node[not port] (mynot8) {} 
+  (14,-1)node[not port] (mynot9) {} 
+  (14,1)node[not port] (mynot10) {} 
+  (14,3)node[not port] (mynot11) {} 
+  (14,5)node[not port] (mynot12) {} 
+  (14,7)node[not port] (mynot13) {} 
+  (14,9)node[not port] (mynot14) {} 
+  (14,11)node[not port] (mynot15) {} 
+  (14,13)node[not port] (mynot16) {} 
+  [led] (3,0) to (mynot1.out) 
+  (-1,0) node[anchor=west]{PA$_{7}$}
+  [R,*-] (5,0) to (3,0);
+  \draw 
+  [led] (3,2) to (mynot2.out) 
+  (-1,2) node[anchor=west]{PA$_{6}$}
+  [R,*-] (5,2) to (3,2);
+  \draw 
+  [led] (3,4) to (mynot3.out)
+  (-1,4) node[anchor=west]{PA$_{5}$}
+  [R,*-] (5,4) to (3,4); \draw
+  [led] (3,6) to (mynot4.out)
+  (-1,6) node[anchor=west]{PA$_{4}$}
+  [R,*-] (5,6) to (3,6); \draw
+  [led] (3,8) to (mynot5.out)
+  (-1,8) node[anchor=west]{PA$_{3}$}
+  [R,*-] (5,8) to (3,8); \draw
+  [led] (3,10) to (mynot6.out)
+  (-1,10) node[anchor=west]{PA$_{2}$}
+  [R,*-] (5,10) to (3,10); \draw
+  [led] (3,12) to (mynot7.out)
+  (-1,12) node[anchor=west]{PA$_{1}$}
+  [R,*-] (5,12) to (3,12); \draw
+  [led] (3,14) to (mynot8.out)
+  (-1,14) node[anchor=west]{PA$_{0}$}
+  (0,15) node[anchor=north]{\bf Port A (Output)}
+  [R,*-] (5,14) to (3,14); \draw
+  (5,0) to (5,15)node[ocirc]{+5V};
+  \draw 
+  [closing switch] (9,-1) to (mynot9.in);
+  \draw 
+  [closing switch] (9,1) to (mynot10.in);
+  \draw 
+  [closing switch] (9,3) to (mynot11.in);
+  \draw 
+  [closing switch] (9,5) to (mynot12.in);
+  \draw 
+  [closing switch] (9,7) to (mynot13.in);
+  \draw 
+  [closing switch] (9,9) to (mynot14.in);
+  \draw 
+  [closing switch] (9,11) to (mynot15.in);
+  \draw 
+  [closing switch] (9,13) to (mynot16.in);
+  \draw 
+  (9,13) to (9,-3)node[ground]{};
+  \draw 
+  (5,0) to [led](10,0) to [R](12,0) -| (mynot9.in) 
+  (15.5,-1) node[anchor=east]{PB$_{7}$} ;
+  \draw 
+  (5,2) to [led](10,2) to [R](12,2) -| (mynot10.in) 
+  (15.5,1) node[anchor=east]{PB$_{6}$} ;
+  \draw 
+  (5,4) to [led](10,4) to [R](12,4) -| (mynot11.in) 
+  (15.5,3) node[anchor=east]{PB$_{5}$} ;
+  \draw 
+  (5,6) to [led](10,6) to [R](12,6) -| (mynot12.in) 
+  (15.5,5) node[anchor=east]{PB$_{4}$} ;
+  \draw 
+  (5,8) to [led](10,8) to [R](12,8) -| (mynot13.in) 
+  (15.5,7) node[anchor=east]{PB$_{3}$} ;
+  \draw 
+  (5,10) to [led](10,10) to [R](12,10) -| (mynot14.in) 
+  (15.5,9) node[anchor=east]{PB$_{2}$} ;
+  \draw             
+  (5,12) to [led](10,12) to [R](12,12) -| (mynot15.in) 
+  (15.5,11) node[anchor=east]{PB$_{1}$} ;
+  \draw             
+  (5,14) to [led](10,14) to [R](12,14) -| (mynot16.in) 
+  (15.5,13) node[anchor=east]{PB$_{0}$} 
+  (15,15) node[anchor=north]{\bf Port B\newline (Input)} ;
+\end{circuitikz}

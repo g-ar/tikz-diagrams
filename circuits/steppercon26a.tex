@@ -1,0 +1,22 @@
+\begin{circuitikz}[scale=1]
+  \draw (0,0) rectangle (5,15) ;
+  \foreach \n in {1,...,13}
+  {
+    \FPeval{\lbl}{clip(26-2*\n+2)} 
+    \draw (0,\n) to (-1,\n) ;
+    \draw (5,\n) to (6,\n) ;
+    \draw (5,\n) node[anchor=east] {\lbl} ;
+    \FPeval{\lbl}{clip(26-2*\n+1)} 
+    \draw (0,\n) to (-1,\n) ;
+    \draw (0,\n) to (-1,\n) ;
+    \draw (0,\n) node[anchor=west] {\lbl} ;
+  }
+  \draw (-1,3) node[anchor=east] {PA$_{0}$} ;
+  \draw (-1,4) node[anchor=east] {PA$_{2}$} ;
+  \draw (6,3) node[anchor=west] {PA$_{1}$} ;
+  \draw (6,4) node[anchor=west] {PA$_{3}$} ;
+  \draw (2,15) node[anchor=south] {J1} ;
+  \draw (2,0) node[anchor=north] {CON26A} ;
+  \draw (-1,1) to (-3,1) to (-3,3)node[ocirc] {V$_{\textrm{\tiny CC}}$} ;
+  \draw (6,1) to (8,1) to (8,-2)node[ground] {} ;
+\end{circuitikz}

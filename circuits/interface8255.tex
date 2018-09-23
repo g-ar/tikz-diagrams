@@ -1,0 +1,33 @@
+\scalebox{0.8}{
+  \begin{tikzpicture}[thick, every matrix/.style={ampersand replacement=\&,column sep=3cm,row sep=3pt}]
+    \matrix {
+      \node[draw,rectangle,minimum height=2in,minimum width=1.25in] (a) {
+        \begin{tabular}{c}
+          CPU \\ 
+          8086 \\
+          Microprocessor
+        \end{tabular}
+      };
+      \& 
+      \node[draw,rectangle,right of=a,minimum height=2in,minimum width=1.25in] (b) {
+        \begin{tabular}{c}
+          8255 \\
+          PPI
+        \end{tabular}
+      };
+      \& 
+      \node[draw,rectangle,right of=b,minimum height=2in,minimum width=1.25in] (c) {
+        \begin{tabular}{c}
+          Interfacing \\
+          modules
+        \end{tabular}
+      };\\ 
+      \node {(Mother Board)} ; \& \node {\hspace{2cm}(On Daughter Card)} ; \& ; \\
+    };
+    \draw[-implies,double equal sign distance,double distance=5pt] (a.30) -- node[anchor=north]{Address Bus}  (b.150);
+    \draw[implies-implies,double equal sign distance,double distance=5pt] (a) -- node[anchor=north]{Data Bus}(b) ;
+    \draw[implies-implies,double equal sign distance,double distance=5pt] (a.-30) -- node[anchor=north]{Control Bus}(b.-150) ;
+    \draw[-implies,double equal sign distance,double distance=5pt] (b.30) -- node[anchor=north]{Output}(c.150) ;
+    \draw[implies-,double equal sign distance,double distance=5pt] (b.-30) -- node[anchor=north]{Input}(c.-150) ;    
+  \end{tikzpicture}
+}

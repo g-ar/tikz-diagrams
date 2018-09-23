@@ -1,0 +1,25 @@
+\renewcommand{\x}{0}
+\begin{circuitikz}[scale=1]
+  \foreach \h/\bn/\hn in {0/11000000/F0,1/11111001/F9,2/10100100/A4,3/10110000/B0, 4/10011001/99, 5/10010010/92, 6/10000010/82, 7/11111000/F8}
+  {
+    \coordinate(A) at (\x+2.25+3*\h,3);
+    \begin{scope}[xslant=0.1]
+      \SSGNb{A}{\h}
+    \end{scope}
+    \draw (\x+2.25+3*\h,1) node[below] {\bn} ;
+    \draw (\x+2.25+3*\h,0) node[below] {\hn} ;
+  }
+  \foreach \h/\bn/\hn in {8/10000000/80,9/10011000/98,10/10001000/88,11/10000011/83,12/11000100/C6,13/10100001/A1,14/10000100/86,15/10001110/8E}
+  {
+    \FPeval{\res}{clip(\h-8)} ;
+    \coordinate(A) at (\x+2.25+3*\res,-2);
+    \begin{scope}[xslant=0.1]
+      \SSGNb{A}{\h}
+    \end{scope}
+    \draw (\x+2.25+3*\res,-4) node[below] {\bn} ;
+    \draw (\x+2.25+3*\res,-5) node[below] {\hn} ;
+  }
+  \coordinate(B) at (2.25,6);
+  \SSGLeg{B}
+  \draw (5.25,6) node[] {SSC: hgfedcba} ;
+\end{circuitikz}

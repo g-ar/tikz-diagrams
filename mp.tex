@@ -1,0 +1,313 @@
+\documentclass[12pt]{report}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage[pdftex]{graphicx}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\usepackage{circuitikz}
+\usepackage{incgraph}
+\usepackage[nomessages]{fp}
+\usepackage{sevenseg}
+\usepackage{float}
+\usetikzlibrary{arrows, decorations.markings}
+
+\newcommand{\x}{0}
+
+\pagestyle{plain}
+\lstset{
+  tabsize=4,
+  rulecolor=,
+  language={[x86masm]Assembler},
+  basicstyle=\scriptsize\ttfamily,
+  upquote=true,
+  aboveskip={1.5\baselineskip},
+  columns=fixed,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  frame=single,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  identifierstyle=\ttfamily,
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color[rgb]{0.133,0.545,0.133},
+  stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+
+\begin{document}
+\renewcommand{\thesection}{A}
+\section{Block Diagram of Interfacing Devices}
+\subsection{The general block diagram of Interfacing through 8255 PPI}
+\begin{figure}[h]
+  \begin{center}
+    \input{circuits/interface8255.tex}
+  \end{center}
+\end{figure}
+
+\newpage
+\subsection{The control word format of 8255 PPI}
+\begin{figure}[h]
+  % ~ \scalebox{0.7}{
+  \begin{center}
+    \input{circuits/controlword.tex}
+  \end{center}
+  % ~ }
+\end{figure}
+
+\newpage
+\subsection{The circuit diagram of Logic Controller}
+\begin{figure}[h]
+  \scalebox{0.9}{
+    \input{circuits/logic_ctrller_int.tex}
+  }
+\end{figure}
+
+\newpage
+\subsection{The circuit diagram of Display Interface}
+\begin{figure}[H]
+  \scalebox{0.5}{
+    \input{circuits/seven-segment.tex}
+  }
+\end{figure}
+\begin{figure}[H]
+  \scalebox{0.6}{
+    \input{circuits/seven-segment-vals.tex}
+  }
+\end{figure}
+
+\newpage
+\subsection{Keyboard Interface}
+\begin{figure}[H]
+  \scalebox{0.9}{
+    \input{circuits/keybrd.tex}
+  }
+\end{figure}
+
+\newpage
+\subsection{The circuit diagram of DAC Interface}
+\begin{figure}[H]
+  \scalebox{0.7}{
+    \input{circuits/DACx.tex}
+  }
+\end{figure}
+\begin{figure}[H]
+  \scalebox{0.7}{
+    \input{circuits/DACy.tex}
+  }
+\end{figure}
+
+\newpage
+\subsection{Elevator Interface}
+\begin{figure}[H]
+  \scalebox{0.9}{
+    \input{circuits/elevator.tex}
+  }
+\end{figure}
+
+\newpage
+\subsection{The circuit diagram of Stepper Motor Driver}
+\begin{figure*}[b!]
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+    \scalebox{0.6}{
+      \input{circuits/stepperPA0.tex}
+    }
+  \end{subfigure}%
+  ~ 
+  \begin{subfigure}[b]{0.5\textwidth}
+    \scalebox{0.6}{
+      \input{circuits/stepperPA1.tex}
+    }
+  \end{subfigure}
+\end{figure*}
+\begin{figure*}[b!]
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+    \scalebox{0.6}{
+      \input{circuits/stepperPA2.tex}
+    }
+  \end{subfigure}%
+  ~ 
+  \begin{subfigure}[b]{0.5\textwidth}
+    \scalebox{0.6}{
+      \input{circuits/stepperPA3.tex}
+    }
+  \end{subfigure}
+\end{figure*}
+\begin{figure*}[b!]
+  \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+    \scalebox{0.6}{
+      \input{circuits/stepperother.tex}
+    }
+  \end{subfigure}%
+  ~ 
+  \begin{subfigure}[b]{0.3\textwidth}
+    \scalebox{0.6}{
+      \input{circuits/stepperother2.tex}
+    }
+  \end{subfigure}
+  
+\end{figure*}
+\begin{figure*}[b!]
+  \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+    \scalebox{0.6}{
+      \input{circuits/stepperother3.tex}
+    }
+  \end{subfigure}%
+  ~ 
+  \begin{subfigure}[b]{0.3\textwidth}
+    \scalebox{0.4}{
+      \input{circuits/steppercon26a.tex}
+    }
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\textwidth}
+    \scalebox{0.6}{
+      \input{circuits/stepperwinding.tex}
+    }
+  \end{subfigure}
+\end{figure*}
+
+\newpage
+\subsection{Control Word Format}
+\begin{tikzpicture}
+  \foreach \x/\b in {1/1,2/0,3/0,4/$\circ$,5/$\circ$, 6/0,7/$\circ$,8/$\circ$}
+  {
+    \FPeval{\lbl}{clip(8-\x)}
+    \draw (\x,16) rectangle (\x+1,16.6) ;
+    \draw (\x+0.5,16.6) node[anchor=south] {D$_{\lbl}$} ;
+    \draw (\x+0.5,16) node[anchor=south] {\b} ;
+  }
+  \draw (4+0.5,16) |- (12,12) node[right] {1 for Port-A as input} ;
+  \draw (5+0.5,16) |- (12,13) node[right] {1 for upper Port-C as input} ;
+  \draw (7+0.5,16) |- (12,14) node[right] {1 for Port-B as input} ;
+  \draw (8+0.5,16) |- (12,15) node[right] {1 for lower Port-C as input} ;
+\end{tikzpicture}
+
+\vspace{1cm}
+\textbf{Logic controller}
+
+CW DB 82H		; Port-A output, Port-B input; MDE-0, I/O Mode.
+
+\begin{tikzpicture}
+  \foreach \x/\b in {1/1,2/0,3/0,4/0,5/0, 6/0,7/1,8/0}
+  {
+    \FPeval{\lbl}{clip(8-\x)}
+    \draw (\x,16) rectangle (\x+1,16.6) ;
+    \draw (\x+0.5,16.6) node[anchor=south] {D$_{\lbl}$} ;
+    \draw (\x+0.5,16) node[anchor=south] {\b} ;
+  }
+\end{tikzpicture}
+
+\vspace{1cm}
+\textbf{Seven Segment display}
+
+CW DB 80H 		; Port-B output, Port-C output, Mode 0, I/O Mode
+
+\begin{tikzpicture}
+  \foreach \x/\b in {1/1,2/0,3/0,4/0,5/0, 6/0,7/0,8/0}
+  {
+    \FPeval{\lbl}{clip(8-\x)}
+    \draw (\x,16) rectangle (\x+1,16.6) ;
+    \draw (\x+0.5,16.6) node[anchor=south] {D$_{\lbl}$} ;
+    \draw (\x+0.5,16) node[anchor=south] {\b} ;
+  }
+\end{tikzpicture}
+\vspace{1cm}
+
+\textbf{Key Board interface}
+
+CW DB 90H   ;Port-A input, Port-C output, Mode-0, I/O Mode
+
+\begin{tikzpicture}
+  \foreach \x/\b in {1/1,2/0,3/0,4/1,5/0, 6/0,7/0,8/0}
+  {
+    \FPeval{\lbl}{clip(8-\x)}
+    \draw (\x,16) rectangle (\x+1,16.6) ;
+    \draw (\x+0.5,16.6) node[anchor=south] {D$_{\lbl}$} ;
+    \draw (\x+0.5,16) node[anchor=south] {\b} ;
+  }
+\end{tikzpicture}
+
+\vspace{1cm}
+\textbf{Elevator Interface}
+
+CW DB 80H 		; Port-B output, Port-C output, Mode-0, I/O Mode
+
+\begin{tikzpicture}
+  \foreach \x/\b in {1/1,2/0,3/0,4/1,5/0, 6/0,7/0,8/0}
+  {
+    \FPeval{\lbl}{clip(8-\x)}
+    \draw (\x,16) rectangle (\x+1,16.6) ;
+    \draw (\x+0.5,16.6) node[anchor=south] {D$_{\lbl}$} ;
+    \draw (\x+0.5,16) node[anchor=south] {\b} ;
+  }
+\end{tikzpicture}
+
+\vspace{1cm}
+\newpage
+\subsection{Flag register}
+
+\begin{tikzpicture}
+  \foreach \x/\b in {1/gray,2/gray,3/gray,4/gray,5/white, 6/white,7/white,8/white,9/white,10/white,11/gray,12/white,13/gray,14/white,15/gray,16/white}
+  {
+    \draw[fill=\b] (\x,16) rectangle (\x+1,17) ;
+  }
+  \draw (5.5,16) |- (4,14) node[left] {Overflow} ;
+  \draw (6.5,16) |- (4,13.5) node[left] {Direction} ;
+  \draw (7.5,16) |- (4,13) node[left] {Interrupt} ;
+  \draw (8.5,16) |- (4,12.5) node[left] {Trace} ;
+  \draw (9.5,16) |- (4,12) node[left] {Sign} ;
+  \draw (10.5,16) |- (4,11.5) node[left] {Zero} ;
+  \draw (12.5,16) |- (4,11) node[left] {Auxiliary Carry} ;
+  \draw (14.5,16) |- (4,10.5) node[left] {Parity} ;
+  \draw (16.5,16) |- (4,10) node[left] {Carry} ;
+  \draw[fill=gray] (4,9) rectangle (5,8) ;
+  \draw (5,8.5) node[right] {Unused} ;
+\end{tikzpicture}
+
+\vspace{2cm}
+
+\begin{tabular}{ll}
+  \textbf{Flag} & \textbf{Function}\\\\
+  CF-Carry Flag & 
+                  \parbox[t]{12cm}{ 
+                  =1 if high order bit carry/borrow \\
+  =0 otherwise
+  } \\\\
+  PF-Parity Flag & 
+                   \parbox[t]{12cm}{ 
+                   =1 if low order 8-bit of result contain even parity \\
+  =0 otherwise
+  } \\\\
+  AF-Auxiliary Flag &
+                      \parbox[t]{12cm}{
+                      =1 if carry from/borrow to lower nibble of AL \\
+  =0 otherwise
+  }\\\\
+  ZF-Zero Flag &
+                 \parbox[t]{12cm}{
+                 =1 if result is zero \\
+  =0 otherwise
+  } \\\\
+  SF-Sign Flag &
+                 \parbox[t]{12cm}{
+                 =1 if MSB of result is 1 ($-$ve sign) \\
+  =0 if MSB of result is 0 (+ve sign ) 
+  }\\\\
+  OF-Overflow Flag & 
+                     \parbox[t]{12cm}{
+                     =1 if result is out of range \\
+  =0 otherwise 
+  }
+\end{tabular}
+
+\end{document}

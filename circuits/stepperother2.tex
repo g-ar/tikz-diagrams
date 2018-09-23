@@ -1,0 +1,15 @@
+\begin{circuitikz}[scale=1]
+  \draw (0,0) rectangle (3,4) ;
+  \foreach \y in {1,2,3} 
+  {
+    \FPeval{\lbl}{clip(4-\y)} 
+    \draw (0,\y) to (-1,\y) ;
+    \draw (0,\y) node[anchor=west] {\lbl} ;
+  }
+  \foreach \lbl/\y in {WHT/3,BLK/2,/1} 
+  {
+    \draw (-1,\y) node[anchor=east] {\lbl} ;
+  }
+  \draw (1,4)node[anchor=south] {J3} ;
+\end{circuitikz}
+
